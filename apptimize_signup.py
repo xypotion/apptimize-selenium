@@ -45,7 +45,11 @@ purchasedNo.click()
 eula = driver.find_element_by_id("eula")
 eula.click()
 
-# # assert "No results found." not in driver.page_source
-# assert "Event" not in driver.page_source
+# click submit button
+submit = driver.find_element_by_id("submit")
+# submit.click()
+
+# success if you land on the Create App page
+assert "Create App" in driver.title
 
 # driver.close()
