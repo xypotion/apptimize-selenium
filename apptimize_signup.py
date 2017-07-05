@@ -1,7 +1,4 @@
-# explicit requirements:
-# sign up for 30-day trial account at apptimize.com
-# use "Apptimize Candidate" for company
-# record all email addresses used to sign up
+# tests for https://apptimize.com/30-day-trial
 
 import time
 import unittest
@@ -16,7 +13,8 @@ class ApptimizeTrialSignupPage(unittest.TestCase):
         self.driver = webdriver.Firefox()
         self.wait = WebDriverWait(self.driver, 5)
 
-    def test_trial_signup(self):
+    # ensures that a new user can sign up for a 30-day trial account
+    def test_trial_signup_basic(self):
         driver = self.driver
         wait = self.wait
         
@@ -26,7 +24,6 @@ class ApptimizeTrialSignupPage(unittest.TestCase):
         # there's probably a better way of logging this, but this works for now
         print(newEmail, newPassword)
 
-        # go straight to trial signup page, since that's faster than loading apptimize.com first and clicking Sign Up
         driver.get("https://apptimize.com/30-day-trial")
 
         # fill in required fields in signup form
